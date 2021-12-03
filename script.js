@@ -69,7 +69,7 @@ function currentWeather(cityname) {
     let lastCity = JSON.parse(localStorage.getItem("weatherapi")) || []
     let cityPage = "<h3>Previous Search</h3>"
     for (let i=0;i<lastCity.length;i++ ){
-        cityPage += `<li><button class="cityPage btn btn- m-3 p-3" onclick="previousList('${lastCity[i]}')">${lastCity[i]}</button></li>`
+        cityPage += `<li><button class="cityPage btn btn-secondary m-3 p-3" onclick="previousList('${lastCity[i]}')">${lastCity[i]}</button></li>`
         console.log(cityPage)
     }
     document.querySelector(".lastSearch").innerHTML = cityPage
@@ -79,7 +79,7 @@ function currentWeather(cityname) {
     }
     function previousList (cityname){
         console.log("previousList - testt",cityname)
-        
+        currentWeather(cityname)
     }
 
     displayLocal()
