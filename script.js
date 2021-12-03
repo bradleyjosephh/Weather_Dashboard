@@ -19,6 +19,12 @@ function currentWeather(cityname) {
             console.log(result)
             var lat = result.coord.lat
             var lon = result.coord.lon
+            var previousSearch = JSON.parse(localStorage.getItem("weatherapi")) || []
+            if(previousSearch.indexOf(cityname) === -1){
+            previousSearch.push(cityname)
+            localStorage.setItem("weatherapi", JSON.stringify(previousSearch))
+            displayLocal()
+            }
             var htmlText = `<div class="card" style="width: 18rem;">
         <h5 class="card-title">${cityname}</h5>
         <ul class="list-group list-group-flush">
@@ -57,3 +63,19 @@ function currentWeather(cityname) {
                 })
         })
     }
+
+    function displayLocal (){ //hoisting
+       
+    let lastCity = JSON.parse(localStorage.getItem("weatherapi")) || []
+    let cityPage = "<h3>Previous Search</h3>"
+    for (let i=0;i<lastCity.length;i++ ){
+        cityPage += `<li><button class="cityPage btn btn-secondary">${lastCity[i]}</button></li>`
+        console.log(cityPage)
+    }
+    document.querySelector(".lastSearch").innerHTML = cityPage
+    console.log(lastCity)
+
+
+    }
+
+    displayLocal()

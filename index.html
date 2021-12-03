@@ -14,10 +14,19 @@
         <h1> Weather Dashboard </h1>
     </header>
     <div class="container">
-        <input id="cityname" placeholder="Enter City Name" type="text"/>
-        <button id="cityBtn"> Search </button> 
-        <div class="weather-container"></div>
-<div class="container-fiveForecast"></div>
+        <div class="row">
+            <div class="col-md-4">
+                <input id="cityname" placeholder="Enter City Name" type="text"/>
+                <button id="cityBtn"> Search </button>
+                <div class="lastSearch"></div>
+            </div>
+            <div class="col-md-8">
+                <div class="weather-container"></div>
+                <div class="container-fiveForecast d-flex flex-wrap"></div>
+            </div>
+        </div>
+   
+
 
 
 
